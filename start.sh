@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "--- STARTING PLAYIT.GG AGENT ---"
-# Use the 'start' command with '--stdout' to ensure the claim link prints to logs
-playit start --stdout &
+# Move --stdout before the command as it's a global option
+playit --stdout start &
 
 # Wait for the claim link to appear
 sleep 15
