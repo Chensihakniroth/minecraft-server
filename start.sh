@@ -1,17 +1,10 @@
 #!/bin/bash
-echo "--- DEBUG: Checking for playit ---"
-which playit
-playit --version
-
 echo "--- STARTING PLAYIT.GG AGENT ---"
-# Run playit in the background and redirect output to a file we can read
-playit > /tmp/playit.log 2>&1 &
+# Start playit with the 'run' command in the background
+playit run &
 
-# Wait a bit longer and check the log file
-sleep 10
-echo "--- PLAYIT LOG OUTPUT ---"
-cat /tmp/playit.log
-echo "--- END PLAYIT LOG ---"
+# Wait a few seconds for the claim link to appear in the main logs
+sleep 15
 
 echo "--- STARTING MINECRAFT SERVER ---"
 exec /opt/bedrock-entry.sh
