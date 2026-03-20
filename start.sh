@@ -2,5 +2,5 @@
 # Start playit agent in the background
 playit &
 
-# Let the official entrypoint handle everything else!
-/usr/local/bin/entrypoint-demux
+# Use the official entrypoint script
+exec /opt/bedrock-entry.sh
