@@ -1,9 +1,15 @@
 #!/bin/bash
-echo "--- STARTING PLAYIT.GG AGENT ---"
-# Start playit with the 'run' command in the background
-playit run &
+echo "--- PLAYIT HELP OUTPUT ---"
+playit --help | head -n 20
+echo "--- END HELP ---"
 
-# Wait a few seconds for the claim link to appear in the main logs
+echo "--- STARTING PLAYIT.GG AGENT ---"
+# Most legacy versions just use 'playit' to start.
+# Newer versions use 'playit run'.
+# We will try 'playit' first as the logs didn't like 'run'.
+playit &
+
+# Wait for the claim link to appear
 sleep 15
 
 echo "--- STARTING MINECRAFT SERVER ---"
