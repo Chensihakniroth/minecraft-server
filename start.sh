@@ -1,13 +1,7 @@
 #!/bin/bash
-echo "--- PLAYIT HELP OUTPUT ---"
-playit --help | head -n 20
-echo "--- END HELP ---"
-
 echo "--- STARTING PLAYIT.GG AGENT ---"
-# Most legacy versions just use 'playit' to start.
-# Newer versions use 'playit run'.
-# We will try 'playit' first as the logs didn't like 'run'.
-playit &
+# Use the 'start' command with '--stdout' to ensure the claim link prints to logs
+playit start --stdout &
 
 # Wait for the claim link to appear
 sleep 15
